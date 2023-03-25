@@ -1,0 +1,37 @@
+﻿@model PracticaCalificada1.Models.Cobro
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Practica Calificada 01</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Cobro" asp-action="Calcular">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Numero de Tarjeta:</label>
+                <input asp-for="numTarjeta" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fecha Vencimiento: </label>
+                <input asp-for="fechaVenc" class="form-control" type="date" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Monto a Pagar</label>
+                <input asp-for="montoPagar" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calcular" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+<h1>@ViewData["Message"]</h1>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
